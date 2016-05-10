@@ -14,6 +14,6 @@ Install from [Chrome Web store](https://chrome.google.com/webstore/detail/feedly
 
 ## Third party 
 
-Name: Star Icons
-Link: http://findicons.com/icon/64612/fav2
-License: CC BY
+* Name: Star Icons
+* Link: http://findicons.com/icon/64612/fav2
+* License: CC BY
