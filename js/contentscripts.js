@@ -8,10 +8,11 @@
                 var starPath = './/div[@class="quicklistHandle"]';
                 var linkPath = './/a[@class="title read"]';
                 if (response.fso_uitype == "newtype") {
-                    entriesPath = '//div[@class="board"]//div[@class="entry quicklisted read u0"]';
+                    //qlicklistedがスターマーク付きを表す(その中にreadとunreadがある)
+                    entriesPath = '//div[@class="board"]//div[contains(@class, "entry quicklisted")]'; 
                     starPath = './/button[@class="save-for-later saved"]';
                     linkPath = './/a[@class="title"]';
-                }
+                }                
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
                 for (var i = 0, m = tab_count; i < entries.snapshotLength && m > 0; i++) {
                     var entry = entries.snapshotItem(i);
