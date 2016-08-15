@@ -14,7 +14,7 @@
                     linkPath = './/a[@class="title"]';
                 }                
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
-                window.alert(entries.snapshotLength);
+//                window.alert(entries.snapshotLength);
                 for (var i = 0, m = tab_count; i < entries.snapshotLength && m > 0; i++) {
                     var entry = entries.snapshotItem(i);
                     m--
