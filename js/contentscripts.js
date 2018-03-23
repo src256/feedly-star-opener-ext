@@ -9,7 +9,7 @@
                 var linkPath = './/a[@class="title read"]';
                 if (response.fso_uitype == "newtype") {
                     //qlicklistedがスターマーク付きを表す(その中にreadとunreadがある)
-                    entriesPath = '//div[@class="list-entries"]//div[contains(@class, "entry quicklisted")]'; 
+                    entriesPath = '//div[contains(@class, "list-entries")]//div[contains(@class, "entry quicklisted")]'; 
                     starPath = './/button[@class="save-for-later saved"]';
                     linkPath = './/a[@class="title"]';
                 }                
