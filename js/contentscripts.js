@@ -4,7 +4,8 @@
         if (event.keyCode == 87 && !event.shiftKey) {
             chrome.runtime.sendMessage({method: "getOptions"}, function(response) {
                 var tab_count = response.fso_tabcount
-                var entriesPath = '//div[@class="EntryList__chunk"]//div[contains(@class, "entry")]';
+                //                var entriesPath = '//div[@class="EntryList__chunk"]//div[contains(@class, "entry entry--read quicklisted u0")]';
+                var entriesPath = '//div[@class="EntryList__chunk"]//div[contains(@class, "entry") and contains(@class, "quicklisted")]';                
                 var starPath = './/button[contains(@class, "save-for-later saved")]';
                 var linkPath = './/a[@class="entry__title"]';
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
