@@ -6,16 +6,18 @@
                 var tab_count = response.fso_tabcount
                 var entriesPath = '//div[@class="EntryList__chunk"]//article[contains(@class, "entry") and contains(@class, "quicklisted")]';                
                 var starPath = './/button[contains(@class, "EntryReadLaterButton--saved")]';
-                var linkPath = './/a[@class="entry__title"]';
+                var linkPath = './/a[contains(@class, "entry__title")]';
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
                 for (var i = 0, m = tab_count; i < entries.snapshotLength && m > 0; i++) {
                     var entry = entries.snapshotItem(i);
                     m--
                     var stars = document.evaluate(starPath, entry, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                    console.log("stars=" + stars.snapshotLength);
                     if (stars.snapshotLength  == 0) {
                         continue;
                     }
                     var links = document.evaluate(linkPath, entry, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                    console.log("links=" + links.snapshotLength);                    
                     if (links.snapshotLength > 0) {
                         var link = links.snapshotItem(0);
                         window.open(link.href);  
