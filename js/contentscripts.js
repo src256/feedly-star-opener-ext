@@ -6,7 +6,9 @@
                 var tab_count = response.fso_tabcount
                 var entriesPath = '//div[@class="EntryList__chunk"]//article[contains(@class, "entry") and contains(@class, "quicklisted")]';                
                 var starPath = './/button[contains(@class, "EntryReadLaterButton--saved")]';
-                var linkPath = './/a[contains(@class, "entry__title")]';
+                //                var linkPath = './/a[contains(@class, "entry__title")]';
+                // 2022/12/7
+                var linkPath = './/div[contains(@class, "content")]/a'
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
                 for (var i = 0, m = tab_count; i < entries.snapshotLength && m > 0; i++) {
                     var entry = entries.snapshotItem(i);
