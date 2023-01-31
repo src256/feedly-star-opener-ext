@@ -4,7 +4,7 @@
         if (event.keyCode == 87 && !event.shiftKey) {
             chrome.runtime.sendMessage({method: "getOptions"}, function(response) {
                 var tab_count = response.fso_tabcount
-                var entriesPath = '//div[@class="EntryList__chunk"]//div[@class="TitleOnlyEntry"]';
+                var entriesPath = '//div[@class="EntryList__chunk"]//div[contains(@class, "TitleOnlyEntry")]';
                 var starPath = './/button[contains(@class, "EntryReadLaterButton--saved")]';
                 // 2022/12/7
                 var linkPath = './/div[@class="TitleOnlyEntry__content"]/a'
