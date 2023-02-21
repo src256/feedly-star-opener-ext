@@ -1,7 +1,7 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Feedly Star Opener",
-    "version": "1.18",
+    "version": "3.0",
     "description": "Open feedly saved items in background tab",
     "content_scripts": [
         {
@@ -11,9 +11,12 @@
     ],
     "options_page" : "html/options.html",
     "background": {
-        "scripts": ["js/background.js"]
+        "service_worker": "background.js"
     },
     "permissions": [
+	    "storage"
+    ],
+    "host_permissions": [
         "http://feedly.com/*",
         "https://feedly.com/*"
     ],

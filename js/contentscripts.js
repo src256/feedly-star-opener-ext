@@ -3,7 +3,7 @@
         // push "w" key
         if (event.keyCode == 87 && !event.shiftKey) {
             chrome.runtime.sendMessage({method: "getOptions"}, function(response) {
-                var tab_count = response.fso_tabcount
+                var tab_count = response.fso_tabcount;
                 var entriesPath = '//div[@class="EntryList__chunk"]//div[contains(@class, "TitleOnlyEntry ")]';
                 var starPath = './/button';
                 var notOpenPath = './/*[name()="svg" and contains(@class, "color-accent")]';
