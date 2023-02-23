@@ -6,7 +6,7 @@ $(function() {
 	}
 
     //保存時の処理
-    $("#save").click(function() {
+    $("#save").on('click', function() {
 		//フォームに入力された値を正規化して反映
 		var tabcount = $("#fso_tabcount").val();
 		// //正規化後の値をローカルストレージに保存
