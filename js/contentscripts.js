@@ -1,4 +1,5 @@
 (function() {
+    var DEBUG = false;
     var onKeyDown = function(event) {
         // push "w" key
         if (event.keyCode == 87 && !event.shiftKey) {
@@ -6,21 +7,21 @@
                 var tab_count = response.fso_tabcount;
                 var entriesPath = '//div[@class="EntryList__chunk"]//div[contains(@class, "TitleOnlyLayout ")]';
                 var starPath = './/button';
-                var notOpenPath = './/*[name()="svg" and contains(@class, "color-accent")]';
+                var notOpenPath = './/*[name()="svg" and contains(@class, "color--accent")]';
                 var linkPath = './/div[@class="TitleOnlyLayout__content"]//a'
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
-//                console.log("entries=" + entries.snapshotLength);
+                if (DEBUG) console.log("entries=" + entries.snapshotLength);
                 for (var i = 0, m = tab_count; i < entries.snapshotLength && m > 0; i++) {
                     var entry = entries.snapshotItem(i);
                     var stars = document.evaluate(starPath, entry, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//                    console.log("stars=" + stars.snapshotLength);
+                    if (DEBUG) console.log("stars=" + stars.snapshotLength);
                     if (stars.snapshotLength  == 0) {
                         // skip unmarked star entry
                         continue;
                     }
                     var star = stars.snapshotItem(0);
                     var notOpen = document.evaluate(notOpenPath, star, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//                    console.log("notOpen=" + notOpen.snapshotLength);
+                    if (DEBUG) console.log("notOpen=" + notOpen.snapshotLength);
                     if (notOpen.snapshotLength == 0) {
                         // already Open
                         continue;
@@ -28,7 +29,7 @@
                     
                     m--
                     var links = document.evaluate(linkPath, entry, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-//                    console.log("links=" + links.snapshotLength);
+                    if (DEBUG) console.log("links=" + links.snapshotLength);
                     if (links.snapshotLength > 0) {
                         var link = links.snapshotItem(0);
                         window.open(link.href);  
