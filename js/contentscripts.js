@@ -5,7 +5,7 @@
         if (event.keyCode == 87 && !event.shiftKey) {
             chrome.runtime.sendMessage({method: "getOptions"}, function(response) {
                 var tab_count = response.fso_tabcount;
-                var entriesPath = '//div[@class="EntryList__chunk"]//div[contains(@class, "TitleOnlyLayout ")]';
+                var entriesPath = '//main//div[contains(@class, "TitleOnlyLayout ")]';
                 var starPath = './/button';
                 var notOpenPath = './/*[name()="svg" and contains(@class, "color--accent")]';
                 var linkPath = './/div[@class="TitleOnlyLayout__content"]//a'
