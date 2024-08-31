@@ -5,10 +5,11 @@
         if (event.keyCode == 87 && !event.shiftKey) {
             chrome.runtime.sendMessage({method: "getOptions"}, function(response) {
                 var tab_count = response.fso_tabcount;
-                var entriesPath = '//main//div[contains(@class, "TitleOnlyLayout ")]';
+//                var entriesPath = '//main//div[contains(@class, "TitleOnlyLayout ")]';
+                var entriesPath = '//main//article[contains(@class, "titleOnly")]'; 
                 var starPath = './/button';
                 var notOpenPath = './/*[name()="svg" and contains(@class, "color--accent")]';
-                var linkPath = './/div[@class="TitleOnlyLayout__content"]//a'
+                var linkPath = './/div/a[contains(@class, "EntryTitleLink")]';
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
                 if (DEBUG) console.log("entries=" + entries.snapshotLength);
                 for (var i = 0, m = tab_count; i < entries.snapshotLength && m > 0; i++) {
