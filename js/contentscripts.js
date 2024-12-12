@@ -9,7 +9,7 @@
                 var entriesPath = '//main//article[contains(@class, "titleOnly")]'; 
                 var starPath = './/button';
                 var notOpenPath = './/*[name()="svg" and contains(@class, "color--accent")]';
-                var linkPath = './/div/a[contains(@class, "EntryTitleLink")]';
+                var linkPath = './/a[contains(@class, "EntryTitleLink")]';
                 var entries = document.evaluate(entriesPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
                 if (DEBUG) console.log("entries=" + entries.snapshotLength);
                 for (var i = 0, m = tab_count; i < entries.snapshotLength && m > 0; i++) {
